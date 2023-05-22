@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- profile22:59-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="/stylesheets/assets/img/favicon.ico">
+    <title>Preclinic - Medical & Hospital</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/assets/css/style.css">
+    <!--[if lt IE 9]>
+		<script src="/stylesheets/assets/js/html5shiv.min.js"></script>
+		<script src="/stylesheets/assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+			<div class="header-left">
+				<a  class="logo">
+					<img src="/stylesheets/assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
+				</a>
+			</div>
+			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+               
+               
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img"><img class="rounded-circle" src="/stylesheets/assets/img/user.jpg" width="40" alt="Admin">
+							</span>
+                        <span>Doctor</span>
+                    </a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/doctor/logout">Logout</a>
+					</div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/doctor/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li class="active">
+                            <a href="/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="/allPatients"><i class="fa fa-hospital-o"></i> <span>All Patients</span></a>
+                        </li>
+                        <li>
+                            <a href="/patients"><i class="fa fa-wheelchair"></i> <span>My Patients</span></a>
+                        </li>
+                      
+                        <li >
+                            <a href="/allDoctors"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>  
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Edit Doctor</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <form class="form-signin" method ="POST" action="/doctor/editDoctor" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Full Name <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="DoctorsName" value="<%=doctor.DoctorsName %>">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="email" value="<%=doctor.email%>">
+                                    </div>
+                                </div>
+                            
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input class="form-control" name="phoneNumber"type="text" value="<%=doctor.phoneNumber%>">
+                                    </div>
+                                </div> 
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <select class="form-control" name="gender"id="gender">
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                           
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Specialization</label>
+                                        <select class="form-control" name="specialization"id="specialization">
+                                            <option value="Gynaecology">Gynaecology</option>
+                                            <option value="Radiology">Radiology</option>
+                                            <option value="Oncology">Oncology</option>
+                                            <option value="Dermatology">Dermatology</option>
+                                            <option value="Urology">Urology</option>
+                                            <option value="Cardiology">Cardiology</option>
+                                            <option value="Psychiatry">Psychiatry</option>
+                                            <option value="Neurology">Neurology</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+									<div class="form-group">
+										<label for="formFileSm">Picture:</label>
+										<div class="profile-upload">
+											<div class="upload-img">
+												<img alt="" src="<%=doctor.image%>">
+											</div>
+											<div class="upload-input">
+                                                <input class="form-control form-control-sm" name="image" id="formFileSm" type="file">
+											</div>
+										</div>
+									</div>
+                                </div>
+                            </div>							
+                            <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="/stylesheets/assets/js/jquery-3.2.1.min.js"></script>
+	<script src="/stylesheets/assets/js/popper.min.js"></script>
+    <script src="/stylesheets/assets/js/bootstrap.min.js"></script>
+    <script src="/stylesheets/assets/js/jquery.slimscroll.js"></script>
+    <script src="/stylesheets/assets/js/select2.min.js"></script>
+	<script src="/stylesheets/assets/js/moment.min.js"></script>
+	<script src="/stylesheets/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/stylesheets/assets/js/app.js"></script>
+</body>
+
+
+<!-- edit-doctor24:06-->
+</html>
